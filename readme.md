@@ -1,8 +1,11 @@
-# Electrónica IV. Trabajo práctico 1. Algoritmos en ensamblador Cortex-M3
+# Electrónica IV - TP - Algoritmos en ensamblador Cortex-M3
+
+Modalidad: *individual*
+Plazo de entrega: *1 semana*
 
 Antes de comenzar:
 
-- Por favor **lee este documento completo al menos una vez antes de comenzar a trabajar**. El trabajo es en equipo, así que es recomendable que se haga una lectura conjunta con todo el equipo.
+- Por favor **lee este documento completo al menos una vez antes de comenzar a trabajar**.
 - Si tienes traducción automática activada en tu navegador, los términos en inglés se traducirán de forma literal y podría dificultar el hacer algunas tareas. En particular el término *fork* (bifurcación) se traduce en algunos casos como *tenedor* (otra acepción de fork). *Es recomendable desactivar la traduccion automática*.
 
 Una vez realizado este práctico conseguiras:
@@ -75,11 +78,11 @@ Si no tienes una cuenta en GitHub puedes crearla de forma gratuita navegando a [
 
 La acción *fork* (bifurcación) en github permite crear un repositorio en tu cuenta clonando otro repositorio en GitHub. Si el otro repositorio es actualizado en el futuro podrás obtener los últimos cambios y combinarlos con tu propio trabajo si así lo deseas. Además puedes solicitar al equipo del repositorio original que acepte tus cambios, este mecanismo es la base de la participación en proyectos de código abierto.
 
-Para continuar con este práctico, *uno de los miembros del equipo* deberá, en su cuenta de github, hacer un fork del repositorio de este práctico [fmirandabonomi/eiv23-tp1][eiv23-tp1]. Luego de realizar el fork, podrás dar acceso de escritura al repositorio a los demás miembros del equipo. Para ello abre tu repositorio (estará abierto luego de hacer el fork) y ve a la configuración del mismo (Settings, con el ícono de un engranaje). Ve a la configuración de colaboradores *Access->Collaborators* (va a solicitarte que vuelvas a identificarte), en *Manage Access* haz click en *Add people*. Busca con los nombres de usuario de tus compañeros y añádelos al repositorio. Les llegará una invitación que *deben aceptar*. Para aceptar la invitación, en su cuenta github deben ir a los mensajes (ícono de la campana en el extremo superior derecho), haz click en el mensaje de invitación y luego en *Accept invitation*. Una vez aceptada tendrán acceso de escritura al repositorio.
+Para continuar con este práctico debes, en tu cuenta de github, hacer un fork del repositorio de este práctico [fmirandabonomi/eiv23-tp1][eiv23-tp1].
 
 ### Clonar tu repositorio del práctico en forma local para trabajar
 
-Para comenzar a trabajar deberás crear una copia local en tu pc del repositorio que creaste en github. Para ello en VSCode presiona *Ctrl+Mayusc+P* para abrir la paleta de comandos, escribe *git:clone* y presiona enter. Elige *clone from github*. La extensión de github en VSCode solicitará acceso a tu cuenta de github. Presiona *Allow* (permitir), se abrirá una pestaña del navegador en tu cuenta de github (debes tener una sección abierta) y allí debes seleccionar *Authorize Visual Studio Code...*, el navegador te advertirá que el sitio intenta abrir Visual Studio Code, debes aceptar (*Open*). Irás a Visual Studio Code donde aparecerá un pedido de la extensión para navegar a una dirección de confirmación. Debes aceptar también con *Open*. Luego de completado el proceso ha quedado vinculado VSCode con tu cuenta de github y puedes proceder a clonar el repositorio. En el espacio de búsqueda escribe eiv23-tp1 y busca la versión de tu grupo (comienza con el nombre de la cuenta de github del responsable de clonar el repositorio, *cuenta*/eiv23-tp1). Elige una carpeta de trabajo (el repositorio se creará en una subcarpeta con el nombre *eiv23-tp1*).
+Para comenzar a trabajar deberás crear una copia local en tu pc del repositorio que creaste en github. Para ello en VSCode presiona *Ctrl+Mayusc+P* para abrir la paleta de comandos, escribe *git:clone* y presiona enter. Elige *clone from github*. La extensión de github en VSCode solicitará acceso a tu cuenta de github. Presiona *Allow* (permitir), se abrirá una pestaña del navegador en tu cuenta de github (debes tener una sección abierta) y allí debes seleccionar *Authorize Visual Studio Code...*, el navegador te advertirá que el sitio intenta abrir Visual Studio Code, debes aceptar (*Open*). Irás a Visual Studio Code donde aparecerá un pedido de la extensión para navegar a una dirección de confirmación. Debes aceptar también con *Open*. Luego de completado el proceso ha quedado vinculado VSCode con tu cuenta de github y puedes proceder a clonar el repositorio. En el espacio de búsqueda escribe eiv23-tp1 y busca tu versión (comienza con el nombre de tu cuenta, *cuenta*/eiv23-tp1). Elige una carpeta de trabajo (el repositorio se creará en una subcarpeta con el nombre *eiv23-tp1*).
 
 ## Implementación de algoritmos
 
