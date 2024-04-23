@@ -99,7 +99,13 @@ static void test_posicion_maximo_3(void)
     const int32_t obtenido = posicion_maximo(cantidad,numeros);
     TEST_ASSERT_EQUAL_INT32(esperado,obtenido);
 } 
-
+static void test_posicion_maximo_4(void){
+    int32_t numeros[]={1,5,10,6,4};
+    const int32_t cantidad = 5;
+    const int32_t esperado = 2;
+    const int32_t obtenido = posicion_maximo(cantidad,numeros);
+    TEST_ASSERT_EQUAL_INT32(esperado,obtenido);    
+}
 static void test_ordenar_1(void)
 {
     int32_t numeros[]={2,1};
@@ -132,6 +138,13 @@ static void test_ordenar_4(void)
     ordenar_en_sitio_menor_a_mayor(cantidad,numeros);
     TEST_ASSERT_EQUAL_MEMORY(ordenado,numeros,sizeof(ordenado));
 } 
+static void test_ordenar_5(void){
+    int32_t numeros[]={1,5,10,6,4};
+    const int32_t cantidad = 5;
+    int32_t ordenado[]={1,4,5,6,10};
+    ordenar_en_sitio_menor_a_mayor(cantidad,numeros);
+    TEST_ASSERT_EQUAL_MEMORY(ordenado,numeros,sizeof(ordenado));    
+}
 
 int main(void)
 {
@@ -148,10 +161,12 @@ int main(void)
     RUN_TEST(test_posicion_maximo_1);
     RUN_TEST(test_posicion_maximo_2);
     RUN_TEST(test_posicion_maximo_3);
+    RUN_TEST(test_posicion_maximo_4);
     RUN_TEST(test_ordenar_1);
     RUN_TEST(test_ordenar_2);
     RUN_TEST(test_ordenar_3);
     RUN_TEST(test_ordenar_4);
+    RUN_TEST(test_ordenar_5);
     UNITY_END();
     for(;;); // HALT
 }
