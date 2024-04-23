@@ -37,9 +37,9 @@
  */
 defun suma
     push {r4-r11,lr}
-    // Insertar código a continuación
-
-    // Retorno, antes R0 debe tener el valor correcto
+    
+    add R0, R1
+    
     pop {r4-r11,pc}
 endfun suma
 
@@ -58,10 +58,30 @@ endfun suma
  */
 defun sumatoria
     push {r4-r11,lr}
-    // Insertar código a continuación
+    
+    mov R3, R0
+    mov R4, R1
 
-    // Retorno, antes R1:R0 debe tener el valor correcto
-    pop {r4-r11,pc}
+    mov R0, #0
+    mov R1, #0
+
+    mov R2, #0
+
+    lazo_suma:
+        cmp R2, R3
+        bge fin_suma
+
+        ldr R5, [R4,R2,lsl #2]
+
+        add R0, R0, R5
+        add R1, R1, #0
+
+        add R2, R1, #1
+
+        b lazo_suma
+
+    fin_suma:
+        pop {r4-r11,pc}
 endfun sumatoria
 
 /**
@@ -79,10 +99,46 @@ endfun sumatoria
  */
 defun posicion_maximo
     push {r4-r11,lr}
-    // Insertar código a continuación
+    
+    mov R3, R0
+    mov R4, R1
 
-    // Retorno, antes R0 debe tener el valor correcto
-    pop {r4-r11,pc}
+    mov R2, #0
+    mov R1, #0
+    mov R0, #0
+
+    condicional_posicion_max:
+        cmp R3, #1
+        ble fin_posicion_max
+
+        ldr R2, [R4,R0,lsl #2]
+        mov R1, #1
+
+        b lazo1_posicion_max
+
+    lazo1_posicion_max:
+        cmp R1,R3
+        bge fin_posicion_max
+
+        b lazo2_posicion_max
+
+    lazo2_posicion_max:
+        ldr R5, [R4,R1,lsl #2]
+
+        cmp R2, R5
+        bge aumento_indice
+
+        mov R2,R5
+        mov R0, R1
+
+        b aumento_indice
+
+    aumento_indice:
+        add R1,R1,#1
+
+        b lazo1_posicion_max
+    fin_posicion_max:
+        pop {r4-r11,pc}
 endfun posicion_maximo
 
 /**
@@ -104,8 +160,30 @@ endfun posicion_maximo
  */
 defun ordenar_en_sitio_menor_a_mayor
     push {r4-r11,lr}
-    // Insertar código a continuación
+   
+   mov R0, R0
+   mov R1, R1
 
-    // Retorno
+   subs R3, R0, #1
+   mov R2, R3
+
+   b lazo_ordena
+
+lazo_ordena:
+    cmp R2, #0
+    ble fin_orden
+
+    mov R5, #0
+
+    ldr R6, [R1,R2,lsl #2]
+    ldr R7, [R1,R4,lsl #2]
+
+    mov R5,R6
+    mov R6,R7
+    mov R7,R5
+
+    subs R2,R2,#1
+    b lazo_ordena
+fin_orden:
     pop {r4-r11,pc}
 endfun ordenar_en_sitio_menor_a_mayor
