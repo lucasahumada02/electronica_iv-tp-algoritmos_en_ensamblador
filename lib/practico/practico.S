@@ -72,12 +72,18 @@ defun sumatoria
         bge fin_suma
 
         ldr R5, [R4,R2,lsl #2]
+        cmp R5, #0
+        blt negativo
+        adds R0, R0, R5
+        adc R1, #0
 
-        add R0, R0, R5
-        add R1, R1, #0
+        bal fin
 
-        add R2, R1, #1
-
+    negativo: 
+        adds R0, R0, R5
+        adc R1,#-1
+    fin:
+        add R2, R2, #1
         b lazo_suma
 
     fin_suma:
