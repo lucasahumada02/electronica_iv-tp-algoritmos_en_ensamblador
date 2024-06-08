@@ -67,7 +67,7 @@ defun sumatoria
 
     lazo_suma:
         cmp R2, R3
-        bge fin_suma
+        bge f
         ldr R5, [R4,R2,lsl #2]
         cmp R5, #0
         blt negativo
@@ -82,7 +82,7 @@ defun sumatoria
         add R2, R2, #1
         b lazo_suma
 
-    fin_suma:
+    f:
         pop {r4-r11,pc}
 endfun sumatoria
 
