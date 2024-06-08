@@ -114,6 +114,7 @@ bucle:
     cmp R2,R3
     bge exit
     ldr R5, [R4, R2,lsl#2]
+    cmp R1,R5
     bge fin_posicion_max
     mov R1,R5
     mov R0,R2
