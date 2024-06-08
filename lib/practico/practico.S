@@ -61,22 +61,18 @@ defun sumatoria
     
     mov R3, R0
     mov R4, R1
-
     mov R0, #0
     mov R1, #0
-
     mov R2, #0
 
     lazo_suma:
         cmp R2, R3
         bge fin_suma
-
-        ldr R5, [R4, R2, lsl#2]
+        ldr R5, [R4,R2,lsl #2]
         cmp R5, #0
         blt negativo
         adds R0,R0,R5
         adc R1,#0
-
         bal fin
 
     negativo: 
@@ -151,7 +147,6 @@ defun ordenar_en_sitio_menor_a_mayor
    
    mov R4, R0
    mov R5, R1
-
    sub R6, R4, #1
 
 lazo_ordena:
