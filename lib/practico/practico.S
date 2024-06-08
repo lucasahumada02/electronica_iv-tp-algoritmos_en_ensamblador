@@ -124,7 +124,7 @@ bucle:
     add R2,R2,#1
     b bucle
 
-    fin_posicion_max:
+    exit:
         pop {r4-r11,pc}
 endfun posicion_maximo
 
