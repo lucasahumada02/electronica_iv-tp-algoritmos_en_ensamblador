@@ -71,6 +71,7 @@ defun sumatoria
         cmp R2, R3
         bge fin_suma
 
+        ldr R5, [R4,R2,lsl #2]
         ldr R5, [R4, R2, lsl#2]
         cmp R5, #0
         blt negativo
