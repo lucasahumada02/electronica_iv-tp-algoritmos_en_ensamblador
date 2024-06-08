@@ -60,7 +60,7 @@ defun sumatoria
     push {r4-r11,lr}
     
     mov R3, R0
-    mov R4, R1
+    mov R4,R1
     mov R0, #0
     mov R1, #0
     mov R2, #0
@@ -68,10 +68,7 @@ defun sumatoria
     lazo_suma:
         cmp R2, R3
         bge fin_suma
-
-
         ldr R5, [R4,R2,lsl #2]
-        ldr R5, [R4, R2, lsl#2]
         cmp R5, #0
         blt negativo
         adds R0,R0,R5
