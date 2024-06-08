@@ -73,11 +73,17 @@ defun sumatoria
 
         ldr R5, [R4,R2,lsl #2]
         cmp R5, #0
-        add R0, R0, R5
-        add R1, R1, #0
+        blt negativo
+        adds R0, R0, R5
+        adc R1, #0
 
-        add R2, R1, #1
+        bal fin
 
+    negativo: 
+        adds R0, R0, R5
+        adc R1,#-1
+    fin:
+        add R2, R2, #1
         b lazo_suma
 
     fin_suma:
@@ -102,41 +108,22 @@ defun posicion_maximo
     
     mov R3, R0
     mov R4, R1
-
-    mov R2, #0
-    mov R1, #0
     mov R0, #0
+    cmp R3, #1
+    ble exit
+    ldr R1, [R4, R0,lsl#2]
+    mov R2, #1
 
-    condicional_posicion_max:
-        cmp R3, #1
-        ble fin_posicion_max
+    bucle:
+    cmp R2,R3
+    bge exit
+    ldr R5, [R4, R2,lsl#2]
+    cmp R1,R5
+    mov R0,R2
+    fin:
+    add R2,R2,#1
+    b bucle
 
-        ldr R2, [R4,R0,lsl #2]
-        mov R1, #1
-
-        b lazo1_posicion_max
-
-    lazo1_posicion_max:
-        cmp R1,R3
-        bge fin_posicion_max
-
-        b lazo2_posicion_max
-
-    lazo2_posicion_max:
-        ldr R5, [R4,R1,lsl #2]
-
-        cmp R2, R5
-        bge aumento_indice
-
-        mov R2,R5
-        mov R0, R1
-
-        b aumento_indice
-
-    aumento_indice:
-        add R1,R1,#1
-
-        b lazo1_posicion_max
     fin_posicion_max:
         pop {r4-r11,pc}
 endfun posicion_maximo
@@ -162,27 +149,22 @@ defun ordenar_en_sitio_menor_a_mayor
     push {r4-r11,lr}
    
    mov R0, R0
-   mov R1, R1
+   mov R5, R1
 
-   subs R3, R0, #1
-   mov R2, R3
-
-   b lazo_ordena
+   subs R6, R4, #1
 
 lazo_ordena:
-    cmp R2, #0
+    cmp R6, #0
     ble fin_orden
-
-    mov R5, #0
-
-    ldr R6, [R1,R2,lsl #2]
-    ldr R7, [R1,R4,lsl #2]
-
-    mov R5,R6
-    mov R6,R7
-    mov R7,R5
-
-    subs R2,R2,#1
+    add R0,R6,#1
+    mov R1,R5
+    bl pos_max
+    ldr R7, [R5,R6,lsl #2]
+    ldr R8, [R5,R0,lsl #2]
+    str R7,[R5, R0, lsl #2]
+    str R8 ,[R5, R6, lsl #2]
+    sub R6,#1
+    subs R6,#1
     b lazo_ordena
 fin_orden:
     pop {r4-r11,pc}
