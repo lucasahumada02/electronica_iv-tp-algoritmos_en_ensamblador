@@ -72,7 +72,7 @@ defun sumatoria
         bge fin_suma
 
         ldr R5, [R4,R2,lsl #2]
-
+        cmp R5, #0
         add R0, R0, R5
         add R1, R1, #0
 
