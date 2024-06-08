@@ -113,14 +113,14 @@ defun posicion_maximo
     ldr R1, [R4, R0,lsl#2]
     mov R2, #1
 
-    bucle:
+bucle:
     cmp R2,R3
     bge exit
     ldr R5, [R4, R2,lsl#2]
-    bge fin
+    bge fin_posicion_max
     mov R1,R5
     mov R0,R2
-    fin:
+    fin_posicion_max:
     add R2,R2,#1
     b bucle
 
