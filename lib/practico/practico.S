@@ -38,7 +38,7 @@
 defun suma
     push {r4-r11,lr}
     
-    ADD R0,R0,R1
+    add R0,R1
     
     pop {r4-r11,pc}
 endfun suma
