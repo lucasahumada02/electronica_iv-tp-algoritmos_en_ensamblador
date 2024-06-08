@@ -38,7 +38,7 @@
 defun suma
     push {r4-r11,lr}
     
-    add R0, R1
+    add R0,R0 R1
     
     pop {r4-r11,pc}
 endfun suma
@@ -71,11 +71,11 @@ defun sumatoria
         cmp R2, R3
         bge fin_suma
 
-        ldr R5, [R4,R2,lsl #2]
+        ldr R5, [R4, R2, lsl#2]
         cmp R5, #0
         blt negativo
-        adds R0, R0, R5
-        adc R1, #0
+        adds R0,R0,R5
+        adc R1,#0
 
         bal fin
 
@@ -118,7 +118,8 @@ defun posicion_maximo
     cmp R2,R3
     bge exit
     ldr R5, [R4, R2,lsl#2]
-    cmp R1,R5
+    bge fin
+    mov R1,R5
     mov R0,R2
     fin:
     add R2,R2,#1
@@ -148,10 +149,10 @@ endfun posicion_maximo
 defun ordenar_en_sitio_menor_a_mayor
     push {r4-r11,lr}
    
-   mov R0, R0
+   mov R4, R0
    mov R5, R1
 
-   subs R6, R4, #1
+   sub R6, R4, #1
 
 lazo_ordena:
     cmp R6, #0
@@ -164,7 +165,6 @@ lazo_ordena:
     str R7,[R5, R0, lsl #2]
     str R8 ,[R5, R6, lsl #2]
     sub R6,#1
-    subs R6,#1
     b lazo_ordena
 fin_orden:
     pop {r4-r11,pc}
