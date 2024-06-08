@@ -154,7 +154,7 @@ lazo_ordena:
     ble fin_orden
     add R0,R6,#1
     mov R1,R5
-    bl pos_max
+    bl posicion_maximo
     ldr R7, [R5,R6,lsl #2]
     ldr R8, [R5,R0,lsl #2]
     str R7,[R5, R0, lsl #2]
